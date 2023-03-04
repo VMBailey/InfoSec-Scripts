@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
-# Script Name:      Nmap Scanner
+# Script Name:      nmap scanner
 # Author:           Vincent Bailey
 # Last Rev:         02/27/2023
-# Purpose:          This script will scan a designated IP address using Nmap.
+# Purpose:          This script will scan a designated IP address using nmap.
 # Source:           https://youtu.be/jYk9XaGoAnk
 
 ##############################################################################
@@ -16,13 +16,13 @@ import sys, nmap, time
 ##############################################################################
 # socket.AF_INET tells pythin that we will be creating a socket connection over IPV4.
 scanner = nmap.PortScanner()
-#target = input
+# target = input
 
 ##############################################################################
 # Start Menu Function
 ##############################################################################
 def startmenu():
-    print("Welcome to our Nmap Automation Tool.")
+    print("Welcome to our nmap Automation Tool.")
     print("<---------------------------------------------->")
     time.sleep(1.6)
     target = input("Please enter the IP address you would like to scan: ")
@@ -54,7 +54,7 @@ def startmenu():
 # SYN ACK Scan Function
 ##############################################################################
 def synackscan(target):
-    print("Nmap Version: ", scanner.nmap_version())
+    print("nmap Version: ", scanner.nmap_version())
 
     # this line will run the actual nmap command
     scanner.scan(target, '1-1024', '-V -sS')
@@ -71,7 +71,7 @@ def synackscan(target):
 # UDP Scan Function
 ##############################################################################
 def udpscan(target):
-    print("Nmap Version: ", scanner.nmap_version())
+    print("nmap Version: ", scanner.nmap_version())
 
     # this line will run the actual nmap command
     scanner.scan(target, '1-1024', '-V -sU')
@@ -88,7 +88,7 @@ def udpscan(target):
 # Comprehensive Scan Function
 ##############################################################################
 def compscan(target):
-    print("Nmap Version: ", scanner.nmap_version())
+    print("nmap Version: ", scanner.nmap_version())
 
     # this line will run the actual nmap command
     scanner.scan(target, '1-1024', '-V -sS -sV -sC -A -O')
