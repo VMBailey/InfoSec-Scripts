@@ -14,7 +14,6 @@ import sys, nmap, time
 ##############################################################################
 # Global Variables
 ##############################################################################
-# socket.AF_INET tells pythin that we will be creating a socket connection over IPV4.
 scanner = nmap.PortScanner()
 target = input
 
