@@ -14,6 +14,7 @@ import socket
 ##############################################################################
 # Variables
 ##############################################################################
+# socket.AF_INET tells pythin that we will be creating a socket connection over IPV4.
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 host = input("Enter your target address: ")
 port = int(input("Alright, now enter the port: "))
