@@ -2,7 +2,7 @@
 
 # Script Name:      Nmap scanner
 # Author:           Vincent Bailey
-# Last Rev:         03/7/2023
+# Last Rev:         03/9/2023
 # Purpose:          This script will scan a designated IP address using Nmap.
 # Source:           https://www.youtube.com/watch?v=1lh_SkY8cHk
 
@@ -21,6 +21,9 @@ target = input
 # Classes
 ##############################################################################
 class Parent:
+    ##############################################################################
+    # Start Menu Function
+    ##############################################################################
     def startmenu(self):
         print("Welcome to our Nmap Automation Tool.")
         print("<---------------------------------------------->")
@@ -29,7 +32,7 @@ class Parent:
         print("Oooooo good choice. One moment.....")
         time.sleep(1.6)
         print("Alright, so our target is: ", target)
-        type(target)
+        
 
         response = input("Please enter the type of scan you would like to run [1-4]: ")
         print ("1. SYN ACK Scan")
