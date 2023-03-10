@@ -12,6 +12,6 @@ newMac = input("What MAC address would you like to assign to this device? ")
 
 print("[+] Changing the MAC address for " + interface + " to " + newMac)
 
-subprocess.call("ifconfig " + interface + " down", shell=True)
-subprocess.call("ifconfig " + interface + " hw ether " + newMac, shell=True)
-subprocess.call("ifconfig " + interface + "wlan0 up", shell=True)
+subprocess.call(["ifconfig ", interface, " down"])
+subprocess.call(["ifconfig ", interface, " hw", "ether", newMac])
+subprocess.call(["ifconfig ", interface, " up"])
