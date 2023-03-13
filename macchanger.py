@@ -27,9 +27,9 @@ def change_mac(interface, new_mac):
 
     # By enclosing our linux commands in quotations, this will prevent a user
     # from using any other linux commands while inputting their variables.
-    subprocess.call(["ifconfig ", interface, " down"])
-    subprocess.call(["ifconfig ", interface, " hw", "ether", new_mac])
-    subprocess.call(["ifconfig ", interface, " up"])
+    subprocess.call(["ifconfig", interface, " down"])
+    subprocess.call(["ifconfig", interface, " hw", "ether", new_mac])
+    subprocess.call(["ifconfig", interface, " up"])
 
 ##############################################################################
 # Get Arguments Function
