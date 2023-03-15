@@ -2,7 +2,7 @@
 
 # Script Name:      MAC Address Changer
 # Author:           Vincent Bailey
-# Last Rev:         03/14/2023
+# Last Rev:         03/15/2023
 # Purpose:          This script will chnage the MAC address of a Linux machine.
 
 ##############################################################################
@@ -61,4 +61,10 @@ def get_arguments():
 # Main
 ##############################################################################
 options = get_arguments()
-change_mac(options.interface, options.new_mac)
+# change_mac(options.interface, options.new_mac)
+ifconfig_result = subprocess.check_output(["ifconfig", options.interface])
+print(ifconfig_result)
+
+##############################################################################
+# End
+##############################################################################
