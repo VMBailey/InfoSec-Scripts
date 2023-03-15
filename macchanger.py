@@ -2,7 +2,7 @@
 
 # Script Name:      MAC Address Changer
 # Author:           Vincent Bailey
-# Last Rev:         03/11/2023
+# Last Rev:         03/14/2023
 # Purpose:          This script will chnage the MAC address of a Linux machine.
 
 ##############################################################################
@@ -27,9 +27,9 @@ def change_mac(interface, new_mac):
 
     # By enclosing our linux commands in quotations, this will prevent a user
     # from using any other linux commands while inputting their variables.
-    subprocess.call(["ifconfig", interface, " down"])
-    subprocess.call(["ifconfig", interface, " hw", "ether", new_mac])
-    subprocess.call(["ifconfig", interface, " up"])
+    subprocess.call(["ifconfig", interface, "down"])
+    subprocess.call(["ifconfig", interface, "hw", "ether", new_mac])
+    subprocess.call(["ifconfig", interface, "up"])
 
 ##############################################################################
 # Get Arguments Function
