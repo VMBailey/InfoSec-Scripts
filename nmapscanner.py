@@ -31,14 +31,12 @@ class Parent:
         target = input("Please enter the IP address you would like to scan: ")
         print("Oooooo good choice. One moment.....")
         time.sleep(1.6)
-        print("Alright, so our target is: ", target)
-        
 
-        response = input("Please enter the type of scan you would like to run [1-4]: ")
-        print ("1. SYN ACK Scan")
-        print ("2. UDP Scan")
-        print ("3. Comprehensive Scan")
-        print ("4. Exit")
+        response = input("""\nSelect the scan that you wish to execute:
+                1) SYN ACK Scan
+                2) UDP Scan
+                3) Comprehensive Scan
+                4) Exit             \n""")
         if response == '1':
             self.synackscan()
         elif response == '2':
