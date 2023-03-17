@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-# Script Name:      Nmap scanner
+# Script Name:      Nmap Scanner
 # Author:           Vincent Bailey
-# Last Rev:         03/9/2023
+# Last Rev:         03/16/2023
 # Purpose:          This script will scan a designated IP address using Nmap.
 # Source:           https://www.youtube.com/watch?v=1lh_SkY8cHk
 
