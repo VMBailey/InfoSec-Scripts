@@ -3,7 +3,7 @@
 # Script Name:      Network Scanner
 # Author:           Vincent Bailey
 # Last Rev:         03/20/2023
-# Purpose:          This script will scan a network using Scapy.
+# Purpose:          This script will scan a subnet range using Scapy.
 
 ##############################################################################
 # Libraries
@@ -15,14 +15,24 @@ import scapy.all as scapy
 # Scan Function
 ##############################################################################
 def scan(ip):
+    # This line searches for the IP address range on a network.
     arp_request = scapy.ARP(pdst=ip)
-    print(arp_request.summary())
+    arp_request.show()  # shows packet details
+
+    # This line searches for the MAC address field on a network.
+    broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
+    broadcast.show()  # shows packet details
+
+    # scapy allows us to append both of the variables above with the line below.
+    arp_request_broadcast = broadcast / arp_request
+    print(arp_request_broadcast.summary())
+    arp_request_broadcast.show()  # shows packet details
 
 
 ##############################################################################
 # Main
 ##############################################################################
-scan("insertIP address here")
+scan("Enter subnet range here")
 ##############################################################################
 # End
 ##############################################################################
