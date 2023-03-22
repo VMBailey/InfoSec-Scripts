@@ -28,10 +28,12 @@ def scan(ip):
 
     # this line will send and receive packets using scapy's "srp" method.
     # srp abbreviated for "send / receive packets"
-    answered_list, unanswered_list = scapy.srp(arp_request_broadcast, timeout=1)
-    print(answered_list.summary())
-    # print(arp_request_broadcast.summary())
-    # arp_request_broadcast.show()  # shows packet details
+    answered_list = scapy.srp(arp_request_broadcast, timeout=1)[0]
+
+    for element in answered_list:
+        print(element[1].psrc)
+        print(element[1].hwsrc)
+        print("-----------------------------------------------------")
 
 
 ##############################################################################
