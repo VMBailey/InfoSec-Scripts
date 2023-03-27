@@ -28,7 +28,7 @@ def scan(ip):
 
     # this line will send and receive packets using scapy's "srp" method.
     # srp abbreviated for "send / receive packets"
-    answered_list = scapy.srp(arp_request_broadcast, timeout=1)[0]
+    answered_list = scapy.srp(arp_request_broadcast, timeout=1, verbose=False)[0]
 
     for element in answered_list:
         print(element[1].psrc)
@@ -40,6 +40,7 @@ def scan(ip):
 # Main
 ##############################################################################
 scan("Enter subnet range here")
+# example: scan("10.0.2.1/24")
 ##############################################################################
 # End
 ##############################################################################
