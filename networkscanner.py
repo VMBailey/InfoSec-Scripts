@@ -2,7 +2,7 @@
 
 # Script Name:      Network Scanner
 # Author:           Vincent Bailey
-# Last Rev:         03/21/2023
+# Last Rev:         03/27/2023
 # Purpose:          This script will scan a subnet range using Scapy.
 
 ##############################################################################
@@ -30,9 +30,11 @@ def scan(ip):
     # srp abbreviated for "send / receive packets"
     answered_list = scapy.srp(arp_request_broadcast, timeout=1, verbose=False)[0]
 
+    # The print statement below allows us to create a small menu to display our
+    # data. \t will tab spaces between strings while \n creates a new line.
+    print ("IP\t\t\tMAC Address\n-----------------------------")
     for element in answered_list:
-        print(element[1].psrc)
-        print(element[1].hwsrc)
+        print(element[1].psrc + "\t\t" + element[1].hwsrc)
         print("-----------------------------------------------------")
 
 
