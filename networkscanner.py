@@ -2,7 +2,7 @@
 
 # Script Name:      Network Scanner
 # Author:           Vincent Bailey
-# Last Rev:         03/27/2023
+# Last Rev:         04/1/2023
 # Purpose:          This script will scan a subnet range using Scapy.
 
 ##############################################################################
@@ -33,15 +33,24 @@ def scan(ip):
     # The print statement below allows us to create a small menu to display our
     # data. \t will tab spaces between strings while \n creates a new line.
     print ("IP\t\t\tMAC Address\n-----------------------------")
+    client_list = []
     for element in answered_list:
-        print(element[1].psrc + "\t\t" + element[1].hwsrc)
+        client_dict = {"IP": element[1].psrc, "MAC": element[1].hwsrc}
+        client_list.append(client_dict)
         print("-----------------------------------------------------")
+    return client_list
+
+def print_result(result_list):
+    print ("IP\t\t\tMAC Address\n-----------------------------")
+    for client in result_list:
+        print(client)
 
 
 ##############################################################################
 # Main
 ##############################################################################
-scan("Enter subnet range here")
+scan_result = scan("Enter subnet range here")
+print_result(scan_result)
 # example: scan("10.0.2.1/24")
 ##############################################################################
 # End
