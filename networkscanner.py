@@ -9,7 +9,7 @@
 # Libraries
 ##############################################################################
 import scapy.all as scapy
-import optparse
+import argparse
 
 
 ##############################################################################
@@ -49,23 +49,20 @@ def get_arguments():
     # The variable below contains the OptionParser class which allows us to add
     # descriptions to our -i and -m commands should the user type
     # "python3 macchanger.py --help" into their terminal.
-    parser = optparse.OptionParser()
+    parser = argparse.ArgumentParser()
 
     # These variable lay out every option for our help menu.
-    parser.add_option("-t", "--target", dest="target", help="This is the subnet range that you wish to target.")
+    parser.add_argument("-t", "--target", dest="target", help="This is the subnet range that you wish to target.")
 
     # By changing this variable from (options, arguments) = get_arguments() to 
-    # a return statement, this tells python to return any variables that are
-    # stored within parser.parse_args() any time this function is called.
-    # return parser.parse_args()
-    (options, arguments) = parser.parse_args()
+    # the line below, this tells python to store any arguments placed in the
+    # terminal into the "options" variable.
+    options = parser.parse_args()
 
     if not options.interface:
         # code to handle error
-        parser.error("Please specify an interface. use -- help for more info.")
-    elif not options.new_mac:
-        # code to handle error
-        parser.error("Please specify a valid MAC address. use -- help for more info.")
+        parser.error("Please specify a subnet range. use --help for more info.")
+
     return options
 
 
