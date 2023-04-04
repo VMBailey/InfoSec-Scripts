@@ -9,6 +9,9 @@
 # Libraries
 ##############################################################################
 import scapy.all as scapy
+
+# argparse is the current library for parsing arguments. optparse is still in
+# use but that library has been deprecated.
 import argparse
 
 
