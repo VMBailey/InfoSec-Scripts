@@ -2,7 +2,7 @@
 
 # Script Name:      Packet Sniffer
 # Author:           Vincent Bailey
-# Last Rev:         04/17/2023
+# Last Rev:         04/18/2023
 # Purpose:          This script will fetch packets from a network.
 
 
@@ -25,7 +25,8 @@ def sniff(interface):
 ##############################################################################
 def process_sniffed_packet(packet):
     if packet.haslayer(http.HTTPRequest):
-        print(packet)
+        if packet.haslayer(scapy.Raw):
+            print(packet[scapy.Raw].load)
 
 
 ##############################################################################
